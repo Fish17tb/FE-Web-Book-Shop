@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { useState } from "react";
+import "./App.css";
+import LayoutAdmin from "./pages/admin/layoutAdmin";
+import themeConfig from "./theme";
+import { ConfigProvider } from "antd";
+import LoginPage from "./pages/client/auth/login";
+import RegisterPage from "./pages/client/auth/register";
+import HomePage from "./pages/client/home";
 
-function App() {
-  const [count, setCount] = useState(0)
+// ✅ Khai báo thủ công ThemeMode đúng như bạn muốn
+type ThemeMode = "light" | "dark";
+
+const App = () => {
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <LoginPage />
+  );
+};
 
-export default App
+export default App;
+
+
+
+//Nếu bạn muốn sau này switch giữa dark và light qua nút bấm:
+{/* <button onClick={() => setMode(mode === "dark" ? "light" : "dark")}>
+  Chuyển theme
+</button> */}
