@@ -1,0 +1,24 @@
+:root {
+    --color-white: #ffffff;
+    --color-light: #f1f5f9;
+    --color-black: #121212;
+    --color-night: #001632;
+
+    --color-red: #f44336;
+    --color-blue: #1a73e8;
+    --color-gray: #80868b;
+    --color-grayish: #dadce0;
+    --color-dark_blue: #1e2142;
+}
+
+.login-container {
+    height: 100vh;
+    background: var(--color-dark_blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-btn {
+    padding: 19px;
+}
