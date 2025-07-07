@@ -22,3 +22,40 @@
 .login-btn {
     padding: 19px;
 }
+
+.wrapper-orther-login {
+    display: flex;
+    gap: 18px;
+}
+
+.icon-social {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #cdcdcdb0;
+    box-shadow: 0px 0px 10px #cdcdcd;
+    cursor: pointer;
+}
+
+.icon-facebook {
+    background: #1877f2;
+}
+
+.icon-facebook:hover {
+    background: #0966de;
+}
+
+.icon-google:hover {
+    background: #f7f7f7;
+}
+
+.icon-github {
+    background: #000000;
+}
+
+.icon-github:hover {
+    opacity: 0.8;
+}

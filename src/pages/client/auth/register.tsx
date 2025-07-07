@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-refresh/only-export-components */
 import {
-  AlipayCircleOutlined,
+  FacebookFilled,
   LockOutlined,
-  TaobaoCircleOutlined,
+  PhoneOutlined,
   UserOutlined,
-  WeiboCircleOutlined,
 } from "@ant-design/icons";
 import {
   LoginForm,
@@ -14,44 +13,59 @@ import {
   ProFormText,
   setAlpha,
 } from "@ant-design/pro-components";
-import { Button, Form, Space, theme, Typography } from "antd";
+import { Button, Col, Form, Row, Space, theme, Typography } from "antd";
 import type { CSSProperties } from "react";
 import { useState } from "react";
 import "../../../antd.css";
-import "../../../styles/login.scss";
+import "../../../styles/register.scss";
+import { FaFacebook, FaFacebookF, FaGithub } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { MdOutlineEmail } from "react-icons/md";
+import { TbBrandGithubFilled } from "react-icons/tb";
 
 type LoginType = "phone" | "account";
 
-const RegisterPage = () => {
+const LoginPage = () => {
   const { token } = theme.useToken();
   const [loginType, setLoginType] = useState<LoginType>("phone");
 
-  const iconStyles: CSSProperties = {
-    marginInlineStart: "16px",
-    color: setAlpha(token.colorTextBase, 0.2),
-    fontSize: "24px",
-    verticalAlign: "middle",
-    cursor: "pointer",
-  };
+  // const iconStyles: CSSProperties = {
+  //   // marginInlineStart: "16px",
+  //   fontSize: "14px",
+  //   verticalAlign: "middle",
+  //   cursor: "pointer",
+  // };
 
   return (
     <ProConfigProvider hashed={false}>
-      <div className="login-container">
+      <div className="register-container">
         <div className="register-page">
           <LoginForm
-            logo="https://github.githubassets.com/favicons/favicon.png"
-            title="Github"
+            logo="../../../../public/images/Logo/logo-sach.png"
+            title="Book Garden"
             subTitle="The world's largest code hosting platform"
             submitter={false}
             actions={
               <Space style={{ color: "#fff" }}>
-                Other login methods
-                <AlipayCircleOutlined style={iconStyles} />
-                <TaobaoCircleOutlined style={iconStyles} />
-                <WeiboCircleOutlined style={iconStyles} />
+                Other register methods
+                <div className="wrapper-orther-register">
+                  <div className="icon-social icon-facebook">
+                    {" "}
+                    <FaFacebookF style={{ color: "#fff" }} />
+                  </div>
+                  <div className="icon-social icon-google">
+                    {" "}
+                    <FcGoogle />
+                  </div>
+                  <div className="icon-social icon-github">
+                    {" "}
+                    <TbBrandGithubFilled style={{color: "#fff"}} />
+                  </div>
+                </div>
               </Space>
             }
           >
+            <div></div>
             <>
               <ProFormText
                 name="fullName"
@@ -59,11 +73,11 @@ const RegisterPage = () => {
                   size: "large",
                   prefix: <UserOutlined className={"prefixIcon"} />,
                 }}
-                placeholder={"fullName"}
+                placeholder={"Full Name"}
                 rules={[
                   {
                     required: true,
-                    message: "fullName không được để trống!",
+                    message: "Vui lòng điền đầy đủ full name!",
                   },
                 ]}
               />
@@ -71,96 +85,121 @@ const RegisterPage = () => {
                 name="email"
                 fieldProps={{
                   size: "large",
-                  prefix: <UserOutlined className={"prefixIcon"} />,
+                  prefix: <MdOutlineEmail className={"prefixIcon"} />,
                 }}
                 placeholder={"Email"}
                 rules={[
                   {
                     required: true,
-                    message: "Email không được để trống!",
+                    message: "Vui lòng điền email!",
                   },
                   {
                     type: "email",
-                    message: "Email không đúng định dạng!",
+                    message: "Email không hợp lệ!",
                   },
                 ]}
               />
-              <ProFormText.Password
-                name="password"
+              <ProFormText
+                name="phone"
                 fieldProps={{
                   size: "large",
-                  prefix: <LockOutlined className={"prefixIcon"} />,
-                  strengthText:
-                    "Mật khẩu phải chứa số, chữ cái và ký tự đặc biệt, dài ít nhất 8 ký tự.",
-                  statusRender: (value) => {
-                    const getStatus = () => {
-                      if (value && value.length > 12) {
-                        return "ok";
-                      }
-                      if (value && value.length > 6) {
-                        return "pass";
-                      }
-                      return "poor";
-                    };
-                    const status = getStatus();
-                    if (status === "pass") {
-                      return (
-                        <div style={{ color: token.colorWarning }}>
-                          Mật khẩu: khỏe
-                        </div>
-                      );
-                    }
-                    if (status === "ok") {
-                      return (
-                        <div style={{ color: token.colorSuccess }}>
-                          Mật khẩu: trung bình
-                        </div>
-                      );
-                    }
-                    return (
-                      <div style={{ color: token.colorError }}>
-                        Mật khẩu: yếu
-                      </div>
-                    );
-                  },
+                  prefix: <PhoneOutlined className={"prefixIcon"} />,
                 }}
-                placeholder={"••••••••"}
+                placeholder={"Phone"}
                 rules={[
                   {
                     required: true,
-                    message: "Mật khẩu không được để trống",
+                    message: "Vui lòng điền số điện thoại!",
                   },
-                ]}
-              />
-              <ProFormText.Password
-                name="confirmPassword"
-                dependencies={["password"]}
-                fieldProps={{
-                  size: "large",
-                  prefix: <LockOutlined className={"prefixIcon"} />,
-                }}
-                placeholder={"Xác nhận mật khẩu"}
-                rules={[
                   {
-                    required: true,
-                    message: "Vui lòng xác nhận mật khẩu!",
+                    pattern: /^[0-9]{9,11}$/,
+                    message: "Số điện thoại không hợp lệ!",
                   },
-                  ({ getFieldValue }) => ({
-                    validator(_, value) {
-                      if (!value || getFieldValue("password") === value) {
-                        return Promise.resolve();
-                      }
-                      return Promise.reject(
-                        new Error("Mật khẩu xác nhận không khớp!")
-                      );
-                    },
-                  }),
                 ]}
               />
+
+              <Row gutter={16}>
+                <Col span={12}>
+                  <ProFormText.Password
+                    name="password"
+                    fieldProps={{
+                      size: "large",
+                      prefix: <LockOutlined className={"prefixIcon"} />,
+                      strengthText:
+                        "Password should contain numbers, letters and special characters, at least 8 characters long.",
+                      statusRender: (value) => {
+                        const getStatus = () => {
+                          if (value && value.length > 12) {
+                            return "ok";
+                          }
+                          if (value && value.length > 6) {
+                            return "pass";
+                          }
+                          return "poor";
+                        };
+                        const status = getStatus();
+                        if (status === "pass") {
+                          return (
+                            <div style={{ color: token.colorWarning }}>
+                              Mật khẩu: khỏe
+                            </div>
+                          );
+                        }
+                        if (status === "ok") {
+                          return (
+                            <div style={{ color: token.colorSuccess }}>
+                              Mật khẩu: trung bình
+                            </div>
+                          );
+                        }
+                        return (
+                          <div style={{ color: token.colorError }}>
+                            Mật khẩu: yếu
+                          </div>
+                        );
+                      },
+                    }}
+                    placeholder={"••••••••"}
+                    rules={[
+                      {
+                        required: true,
+                        message: "Vui lòng điền mật khẩu!",
+                      },
+                    ]}
+                  />
+                </Col>
+                <Col span={12}>
+                  <ProFormText.Password
+                    name="confirmPassword"
+                    dependencies={["password"]}
+                    fieldProps={{
+                      size: "large",
+                      prefix: <LockOutlined className={"prefixIcon"} />,
+                    }}
+                    placeholder={"Confirm Password"}
+                    rules={[
+                      {
+                        required: true,
+                        message: "Vui lòng xác nhận mật khẩu!",
+                      },
+                      ({ getFieldValue }) => ({
+                        validator(_, value) {
+                          if (!value || getFieldValue("password") === value) {
+                            return Promise.resolve();
+                          }
+                          return Promise.reject(
+                            new Error("Mật khẩu xác nhận không khớp!")
+                          );
+                        },
+                      }),
+                    ]}
+                  />
+                </Col>
+              </Row>
             </>
             <Form.Item>
               <Button
-                className="login-btn"
+                className="register-btn"
                 type="primary"
                 htmlType="submit"
                 block
@@ -171,7 +210,7 @@ const RegisterPage = () => {
             <div style={{ textAlign: "center", marginTop: 16 }}>
               <Typography.Text style={{ color: "#aaa" }}>
                 Đã có tài khoản?{" "}
-                <a href="/register" style={{ color: "#1890ff" }}>
+                <a href="/login" style={{ color: "#1890ff" }}>
                   Đăng nhập
                 </a>
                 {/* Nếu dùng React Router:
@@ -187,4 +226,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default LoginPage;

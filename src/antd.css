@@ -155,23 +155,97 @@
 }
 
 .login-page
-.ant-space.ant-space-horizontal.ant-space-align-center.ant-space-gap-row-small.ant-space-gap-col-small {
+  .ant-space.ant-space-horizontal.ant-space-align-center.ant-space-gap-row-small.ant-space-gap-col-small {
   display: flex;
   flex-direction: column;
 }
 
 /* Register Section */
+.register-container {
+  background: #049170 !important;
+  overflow: auto;
+}
+
+.register-page .ant-pro-form-login-header {
+  flex-direction: column;
+}
+
+.register-page .ant-pro-form-login-logo {
+  width: 80px !important;
+  margin-top: 15px;
+  margin-bottom: 27px;
+}
+
+.register-page .ant-pro-form-login-title,
+.register-page .ant-pro-form-login-desc,
+.register-page .ant-checkbox-wrapper {
+  color: var(--color-primary) !important;
+  margin: 0;
+}
+
+.register-page .ant-pro-form-login-desc {
+  margin-block-start: 50px !important;
+  margin-bottom: 50px;
+  opacity: 0.8;
+}
+
 .register-page .ant-pro-form-login-container {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  background: rgba(0, 0, 0, 0.4) !important;
-  max-height: 550px;
-  max-width: 550px;
+  background: var(--color-white) !important;
+  min-height: 672px;
+  max-width: 587px;
   border-radius: 10px;
+  border: 1px solid #cdcdcd;
+  box-shadow: 0px 0px 10px #000000;
 }
 
-.ant-pro-form-login-desc,
-.ant-checkbox-wrapper {
-  color: var(--color-white) !important ;
+.register-page .ant-pro-form-login-main {
+  min-width: 460px !important;
+}
+
+.register-page .ant-btn-variant-solid {
+  background: var(--color-primary) !important ;
+}
+
+.register-page .ant-btn-variant-solid:hover {
+  background: #03634d !important ;
+}
+
+.register-page .ant-input-outlined:hover,
+.register-page .ant-input-outlined:focus,
+.register-page .ant-input-outlined:focus-within {
+  border-color: var(--color-primary) !important;
+}
+
+.register-page .ant-checkbox-wrapper:hover .ant-checkbox-inner,
+.register-page .ant-checkbox-checked .ant-checkbox-inner {
+  border-color: var(--color-primary) !important;
+}
+
+/* .register-page .ant-checkbox-wrapper:hover .ant-checkbox-inner {
+  box-shadow: 0 0 0 2px rgba(247, 0, 255, 0.2);
+} */
+
+.register-page .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--color-primary) !important;
+}
+
+.register-page .ant-space-item {
+  color: var(--color-primary);
+}
+
+.register-page .ant-typography a {
+  color: #5e5e5f8f !important;
+}
+
+.register-page .ant-typography a:hover {
+  color: var(--color-primary) !important;
+}
+
+.register-page
+  .ant-space.ant-space-horizontal.ant-space-align-center.ant-space-gap-row-small.ant-space-gap-col-small {
+  display: flex;
+  flex-direction: column;
 }
