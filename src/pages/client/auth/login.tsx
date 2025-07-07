@@ -1,11 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-refresh/only-export-components */
 import {
-  AlipayCircleOutlined,
   LockOutlined,
-  TaobaoCircleOutlined,
   UserOutlined,
-  WeiboCircleOutlined,
 } from "@ant-design/icons";
 import {
   LoginForm,
@@ -19,8 +16,9 @@ import type { CSSProperties } from "react";
 import { useState } from "react";
 import "../../../antd.css";
 import "../../../styles/login.scss";
-import { FaFacebook, FaGithub } from "react-icons/fa";
+import {FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { TbBrandGithubFilled } from "react-icons/tb";
 
 type LoginType = "phone" | "account";
 
@@ -28,13 +26,13 @@ const LoginPage = () => {
   const { token } = theme.useToken();
   const [loginType, setLoginType] = useState<LoginType>("phone");
 
-  const iconStyles: CSSProperties = {
-    // marginInlineStart: "16px",
-    color: setAlpha(token.colorTextBase, 0.2),
-    fontSize: "24px",
-    verticalAlign: "middle",
-    cursor: "pointer",
-  };
+  // const iconStyles: CSSProperties = {
+  //   // marginInlineStart: "16px",
+  //   color: setAlpha(token.colorTextBase, 0.2),
+  //   fontSize: "24px",
+  //   verticalAlign: "middle",
+  //   cursor: "pointer",
+  // };
 
   return (
     <ProConfigProvider hashed={false}>
@@ -49,9 +47,18 @@ const LoginPage = () => {
               <Space style={{ color: "#fff" }}>
                 Other login methods
                 <div className="wrapper-orther-login">
-                  < FaFacebook  style={iconStyles} />
-                <FcGoogle  style={iconStyles} />
-                <FaGithub  style={iconStyles} />
+                  <div className="icon-social icon-facebook">
+                    {" "}
+                    <FaFacebookF style={{ color: "#fff" }} />
+                  </div>
+                  <div className="icon-social icon-google">
+                    {" "}
+                    <FcGoogle />
+                  </div>
+                  <div className="icon-social icon-github">
+                    {" "}
+                    <TbBrandGithubFilled style={{ color: "#fff" }} />
+                  </div>
                 </div>
               </Space>
             }
@@ -128,7 +135,8 @@ const LoginPage = () => {
               <ProFormCheckbox noStyle name="autoLogin">
                 Automatic Login
               </ProFormCheckbox>
-              <a className="forget-password"
+              <a
+                className="forget-password"
                 style={{
                   float: "right",
                 }}

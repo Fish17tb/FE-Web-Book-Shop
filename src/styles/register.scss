@@ -1,0 +1,62 @@
+:root {
+    --color-white: #ffffff;
+    --color-light: #f1f5f9;
+    --color-black: #121212;
+    --color-night: #001632;
+
+    --color-red: #f44336;
+    --color-blue: #1a73e8;
+    --color-gray: #80868b;
+    --color-grayish: #dadce0;
+    --color-dark_blue: #1e2142;
+}
+
+.register-container {
+    height: 100vh;
+    background: var(--color-dark_blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-btn {
+    padding: 19px;
+}
+
+.wrapper-orther-register {
+    display: flex;
+    gap: 18px;
+}
+
+.icon-social {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #cdcdcdb0;
+    box-shadow: 0px 0px 10px #cdcdcd;
+    cursor: pointer;
+}
+
+.icon-facebook {
+    background: #1877f2;
+}
+
+.icon-facebook:hover {
+    background: #0966de;
+}
+
+.icon-google:hover {
+    background: #f7f7f7;
+}
+
+.icon-github {
+    background: #000000;
+}
+
+.icon-github:hover {
+    opacity: 0.8;
+}
+
