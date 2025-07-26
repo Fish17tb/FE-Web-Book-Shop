@@ -25,7 +25,7 @@ import { TbBrandGithubFilled } from "react-icons/tb";
 
 type LoginType = "phone" | "account";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const { token } = theme.useToken();
   const [loginType, setLoginType] = useState<LoginType>("phone");
 
@@ -59,7 +59,7 @@ const LoginPage = () => {
                   </div>
                   <div className="icon-social icon-github">
                     {" "}
-                    <TbBrandGithubFilled style={{color: "#fff"}} />
+                    <TbBrandGithubFilled style={{ color: "#fff" }} />
                   </div>
                 </div>
               </Space>
@@ -226,4 +226,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
