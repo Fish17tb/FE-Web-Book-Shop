@@ -1,9 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-refresh/only-export-components */
-import {
-  LockOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import {
   LoginForm,
   ProConfigProvider,
@@ -11,28 +8,45 @@ import {
   ProFormText,
   setAlpha,
 } from "@ant-design/pro-components";
-import { Button, Form, Space, theme, Typography } from "antd";
+import { App, Button, Form, FormProps, Space, theme, Typography } from "antd";
 import type { CSSProperties } from "react";
 import { useState } from "react";
 import "../../../antd.css";
 import "../../../styles/login.scss";
-import {FaFacebookF } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { TbBrandGithubFilled } from "react-icons/tb";
+import { loginAPI } from "@/services/auth/login.api";
+import { useNavigate } from "react-router-dom";
 
 type LoginType = "phone" | "account";
+
+type FieldType = {
+  email: string;
+  password: string;
+};
 
 const LoginPage = () => {
   const { token } = theme.useToken();
   const [loginType, setLoginType] = useState<LoginType>("phone");
 
-  // const iconStyles: CSSProperties = {
-  //   // marginInlineStart: "16px",
-  //   color: setAlpha(token.colorTextBase, 0.2),
-  //   fontSize: "24px",
-  //   verticalAlign: "middle",
-  //   cursor: "pointer",
-  // };
+  const navigate = useNavigate();
+  const [isSubmit, setIsSubmit] = useState(false);
+  const { message } = App.useApp();
+
+  const onFinish: FormProps<FieldType>["onFinish"] = async (values) => {
+    const { email, password } = values;
+    setIsSubmit(true);
+    const res = await loginAPI(email, password);
+    if (res?.data) {
+      console.log("ck-res", res);
+      message.success("Login success!");
+      navigate("/");
+    } else {
+      message.error(res.error)
+    }
+    setIsSubmit(false);
+  };
 
   return (
     <ProConfigProvider hashed={false}>
@@ -43,95 +57,56 @@ const LoginPage = () => {
             title="Book Garden"
             subTitle="The world's largest code hosting platform"
             submitter={false}
+            onFinish={onFinish}
             actions={
               <Space style={{ color: "#fff" }}>
                 Other login methods
                 <div className="wrapper-orther-login">
                   <div className="icon-social icon-facebook">
-                    {" "}
                     <FaFacebookF style={{ color: "#fff" }} />
                   </div>
                   <div className="icon-social icon-google">
-                    {" "}
                     <FcGoogle />
                   </div>
                   <div className="icon-social icon-github">
-                    {" "}
                     <TbBrandGithubFilled style={{ color: "#fff" }} />
                   </div>
                 </div>
               </Space>
             }
           >
-            <>
-              <ProFormText
-                name="username"
-                fieldProps={{
-                  size: "large",
-                  prefix: <UserOutlined className={"prefixIcon"} />,
-                }}
-                placeholder={"username or email"}
-                rules={[
-                  {
-                    required: true,
-                    message: "Vui lòng điền tên đăng nhập!",
-                  },
-                ]}
-              />
-              <ProFormText.Password
-                name="password"
-                fieldProps={{
-                  size: "large",
-                  prefix: <LockOutlined className={"prefixIcon"} />,
-                  strengthText:
-                    "Password should contain numbers, letters and special characters, at least 8 characters long.",
-                  statusRender: (value) => {
-                    const getStatus = () => {
-                      if (value && value.length > 12) {
-                        return "ok";
-                      }
-                      if (value && value.length > 6) {
-                        return "pass";
-                      }
-                      return "poor";
-                    };
-                    const status = getStatus();
-                    if (status === "pass") {
-                      return (
-                        <div style={{ color: token.colorWarning }}>
-                          Mật khẩu: khỏe
-                        </div>
-                      );
-                    }
-                    if (status === "ok") {
-                      return (
-                        <div style={{ color: token.colorSuccess }}>
-                          Mật khẩu: trung bình
-                        </div>
-                      );
-                    }
-                    return (
-                      <div style={{ color: token.colorError }}>
-                        Mật khẩu: yếu
-                      </div>
-                    );
-                  },
-                }}
-                placeholder={"••••••••"}
-                rules={[
-                  {
-                    required: true,
-                    message: "Vui lòng điền mật khẩu!",
-                  },
-                ]}
-              />
-            </>
-
-            <div
-              style={{
-                marginBlockEnd: 24,
+            {/* Form fields */}
+            <ProFormText
+              name="email"
+              fieldProps={{
+                size: "large",
+                prefix: <UserOutlined className={"prefixIcon"} />,
+                autoFocus: true, // ✅ đặt ở đây
               }}
-            >
+              placeholder={"username or email"}
+              rules={[
+                {
+                  required: true,
+                  message: "Vui lòng điền tên đăng nhập!",
+                },
+              ]}
+            />
+            <ProFormText.Password
+              name="password"
+              fieldProps={{
+                size: "large",
+                prefix: <LockOutlined className={"prefixIcon"} />,
+              }}
+              placeholder={"••••••••"}
+              rules={[
+                {
+                  required: true,
+                  message: "Vui lòng điền mật khẩu!",
+                },
+              ]}
+            />
+
+            <div style={{ marginBlockEnd: 24 }}>
               <ProFormCheckbox noStyle name="autoLogin">
                 Automatic Login
               </ProFormCheckbox>
@@ -150,6 +125,7 @@ const LoginPage = () => {
                 type="primary"
                 htmlType="submit"
                 block
+                loading={isSubmit}
               >
                 Đăng nhập
               </Button>
@@ -160,10 +136,6 @@ const LoginPage = () => {
                 <a href="/register" style={{ color: "#1890ff" }}>
                   Đăng ký
                 </a>
-                {/* Nếu dùng React Router:
-    <Link to="/register" style={{ color: "#1890ff" }}>
-      Đăng ký
-    </Link> */}
               </Typography.Text>
             </div>
           </LoginForm>

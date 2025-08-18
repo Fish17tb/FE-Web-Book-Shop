@@ -1,7 +1,8 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "@/App.tsx";
+import MyApp from "@/MyApp";
+import { App } from "antd";
 import LoginPage from "pages/client/auth/login.tsx";
 import RegisterPage from "pages/client/auth/register";
 import HomePage from "pages/client/home.tsx";
@@ -9,7 +10,7 @@ import HomePage from "pages/client/home.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <MyApp />,
     children: [
       {
         index: true,
@@ -33,6 +34,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <App>
+      <RouterProvider router={router} />
+    </App>
   </StrictMode>
 );
