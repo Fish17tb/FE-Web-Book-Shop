@@ -14,7 +14,7 @@ import { Outlet } from "react-router-dom";
 // ✅ Khai báo thủ công ThemeMode đúng như bạn muốn
 type ThemeMode = "light" | "dark";
 
-const App = () => {
+const MyApp = () => {
   return (
     <>
       <SectionHeader />
@@ -25,7 +25,7 @@ const App = () => {
   );
 };
 
-export default App;
+export default MyApp;
 
 //Nếu bạn muốn sau này switch giữa dark và light qua nút bấm:
 {

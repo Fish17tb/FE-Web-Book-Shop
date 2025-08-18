@@ -13,7 +13,17 @@ import {
   ProFormText,
   setAlpha,
 } from "@ant-design/pro-components";
-import { Button, Col, Form, Row, Space, theme, Typography } from "antd";
+import {
+  App,
+  Button,
+  Col,
+  Form,
+  FormProps,
+  Row,
+  Space,
+  theme,
+  Typography,
+} from "antd";
 import type { CSSProperties } from "react";
 import { useState } from "react";
 import "../../../antd.css";
@@ -22,12 +32,27 @@ import { FaFacebook, FaFacebookF, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineEmail } from "react-icons/md";
 import { TbBrandGithubFilled } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
+import { registerAPI } from "@/services/auth/register.api";
 
 type LoginType = "phone" | "account";
+
+type FieldType = {
+  fullName: string;
+  email: string;
+  phone: string;
+  password: string;
+};
 
 const RegisterPage = () => {
   const { token } = theme.useToken();
   const [loginType, setLoginType] = useState<LoginType>("phone");
+
+  const navigate = useNavigate();
+
+  const { message } = App.useApp();
+
+  const [isSubmit, setIsSubmit] = useState(false);
 
   // const iconStyles: CSSProperties = {
   //   // marginInlineStart: "16px",
@@ -35,6 +60,18 @@ const RegisterPage = () => {
   //   verticalAlign: "middle",
   //   cursor: "pointer",
   // };
+
+  const onFinish: FormProps<FieldType>["onFinish"] = async (values) => {
+    const { fullName, email, phone, password } = values;
+    const res = await registerAPI(fullName, email, phone, password);
+    setIsSubmit(true);
+    if (res?.data) {
+      console.log("Ck-res", res);
+      message.success("Đăng ký thành công!");
+      navigate("/login");
+    }
+    setIsSubmit(false);
+  };
 
   return (
     <ProConfigProvider hashed={false}>
@@ -45,6 +82,7 @@ const RegisterPage = () => {
             title="Book Garden"
             subTitle="The world's largest code hosting platform"
             submitter={false}
+            onFinish={onFinish}
             actions={
               <Space style={{ color: "#fff" }}>
                 Other register methods
@@ -203,6 +241,7 @@ const RegisterPage = () => {
                 type="primary"
                 htmlType="submit"
                 block
+                loading={isSubmit}
               >
                 Đăng ký
               </Button>
