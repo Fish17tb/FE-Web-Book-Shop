@@ -39,19 +39,8 @@ type FieldType = {
 
 const HomePage = () => {
   return (
-    <>
-      <Layout style={{ height: "100vh" }}>
-        <Header
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "#fff",
-          }}
-        >
-          Header
-        </Header>
-        <Layout>
+    <>  
+        <Layout style={{height: "100vh"}}>
           <Sider
             width="25%"
             style={{
@@ -73,16 +62,6 @@ const HomePage = () => {
             Content
           </Content>
         </Layout>
-        <Footer
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          Footer
-        </Footer>
-      </Layout>
     </>
   );
 };
