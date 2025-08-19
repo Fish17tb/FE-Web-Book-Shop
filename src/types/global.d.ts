@@ -1,3 +1,4 @@
+import { IUser } from "./../../../server/src/types/user.interface";
 declare global {
   interface IBackendRes<T> {
     error?: string | string[];
@@ -14,6 +15,12 @@ declare global {
       roleId: string;
     };
   }
+
+  interface IUser {
+    fullName: string;
+    email: string;
+    roleId: string;
+  }
 }
 
-export {}
+export {};
