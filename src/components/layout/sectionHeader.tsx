@@ -1,9 +1,16 @@
-const SectionHeader = () => {
-return (
-    <>
-    <div>This is header</div>
-    </>
-)
-}
+import { useCurrentApp } from "../../utils/context/app.context";
 
-export default SectionHeader
+const SectionHeader = () => {
+  const {user} = useCurrentApp();
+
+  return (
+    <>
+      <div>This is header</div>
+        <div>
+            {JSON.stringify(user)}
+        </div>
+    </>
+  );
+};
+
+export default SectionHeader;
