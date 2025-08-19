@@ -18,6 +18,7 @@ import { FcGoogle } from "react-icons/fc";
 import { TbBrandGithubFilled } from "react-icons/tb";
 import { loginAPI } from "@/services/auth/login.api";
 import { useNavigate } from "react-router-dom";
+import { useCurrentApp } from "@/utils/context/app.context";
 
 type LoginType = "phone" | "account";
 
@@ -34,16 +35,20 @@ const LoginPage = () => {
   const [isSubmit, setIsSubmit] = useState(false);
   const { message } = App.useApp();
 
+  const {setUser,setIsAuthenticated} = useCurrentApp()
+
   const onFinish: FormProps<FieldType>["onFinish"] = async (values) => {
     const { email, password } = values;
     setIsSubmit(true);
     const res = await loginAPI(email, password);
     if (res?.data) {
-      console.log("ck-res", res);
+      localStorage.setItem("access_token", res.data.access_token);
+      setIsAuthenticated(true)
+      setUser(res.data.payload)
       message.success("Login success!");
       navigate("/");
     } else {
-      message.error(res.error)
+      message.error(res.error);
     }
     setIsSubmit(false);
   };

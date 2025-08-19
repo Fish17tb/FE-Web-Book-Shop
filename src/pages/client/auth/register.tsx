@@ -69,6 +69,8 @@ const RegisterPage = () => {
       console.log("Ck-res", res);
       message.success("Đăng ký thành công!");
       navigate("/login");
+    } else {
+      message.error(res.error)
     }
     setIsSubmit(false);
   };
