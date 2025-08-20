@@ -8,6 +8,8 @@ interface IAppContext {
   setIsAuthenticated: (v: boolean) => void;
   user: IUser | null;
   setUser: (v: IUser | null) => void;
+  isAppLoading: boolean;
+  setIsAppLoading: (v: boolean) => void;
 }
 
 const CurrentAppContext = createContext<IAppContext | null>(null);
@@ -19,6 +21,7 @@ type TProps = {
 export const AppProvider = (props: TProps) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [user, setUser] = useState<IUser | null>(null);
+  const [isAppLoading, setIsAppLoading] = useState<boolean>(true);
 
   return (
     // Phần data chia sẻ giữa các component
@@ -26,8 +29,10 @@ export const AppProvider = (props: TProps) => {
       value={{
         isAuthenticated,
         user,
+        isAppLoading,
         setIsAuthenticated,
         setUser,
+        setIsAppLoading,
       }}
     >
       {props.children}
