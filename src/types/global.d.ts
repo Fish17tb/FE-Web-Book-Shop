@@ -21,6 +21,12 @@ declare global {
     email: string;
     roleId: string;
   }
+
+  interface IFetchAccount {
+    fullName: string;
+    email: string;
+    roleId: string;
+  }
 }
 
 export {};
