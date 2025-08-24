@@ -12,20 +12,25 @@ declare global {
     payload: {
       fullName: string;
       email: string;
-      roleId: string;
+      roleId: Role;
     };
   }
 
   interface IUser {
     fullName: string;
     email: string;
-    roleId: string;
+    roleId: Role; // 👈 thay vì string
+  }
+
+  interface Role {
+    _id: string;
+    name: string;
   }
 
   interface IFetchAccount {
     fullName: string;
     email: string;
-    roleId: string;
+    roleId: Role;
   }
 }
 
