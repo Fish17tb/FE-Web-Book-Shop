@@ -1,0 +1,41 @@
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.time-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.time-value {
+  background-color: #049170;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 17px 20px;
+  border-radius: 5px;
+}
+
+.time-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #049170;
+}
+
+.expired {
+  display: flex;
+  align-items: center;
+  background: #dd2f2c;
+  color: #fff;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  margin: 0 auto;
+  gap: 10px;
+}

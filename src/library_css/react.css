@@ -1,0 +1,21 @@
+.react-multiple-carousel__arrow--left {
+    left: calc(0% + 1px) !important; 
+}
+
+.react-multiple-carousel__arrow--right {
+    right: calc(0% + 1px);
+}
+
+.react-multiple-carousel__arrow  {
+    border-radius: 5px !important;
+    background: rgba(0, 0, 0, 0.1)
+
+}
+
+.react-multiple-carousel__arrow:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.home-kols-container .react-multiple-carousel__arrow--left {
+    left: calc(0% + -0px) !important;
+}
