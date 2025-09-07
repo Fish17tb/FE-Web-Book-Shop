@@ -23,6 +23,7 @@ const Page404 = () => {
             BACK HOME
           </a>
         </div>
+    
       </div>
     </div>
   );
