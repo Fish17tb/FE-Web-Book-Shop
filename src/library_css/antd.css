@@ -1,0 +1,292 @@
+:root {
+  --color-primary: #049170;
+
+  --color-white: #ffffff;
+  --color-light: #f1f5f9;
+  --color-black: #121212;
+  --color-night: #001632;
+
+  --color-red: #f44336;
+  --color-blue: #1a73e8;
+  --color-gray: #80868b;
+  --color-grayish: #dadce0;
+  --color-dark_blue: #1e2142;
+}
+
+.ant-menu-title-content,
+.ant-menu-item-icon,
+.ant-menu-submenu-arrow {
+  color: #ffffff5e !important;
+}
+
+/* Hover chung cho cả icon + text + arrow */
+.ant-menu-item:hover,
+.ant-menu-submenu-title:hover {
+  .ant-menu-title-content,
+  .ant-menu-item-icon,
+  .ant-menu-submenu-arrow {
+    color: #0091ff !important;
+  }
+}
+
+.ant-menu-item-selected {
+  background-color: transparent !important;
+}
+
+.ant-layout-sider-trigger,
+.ant-layout-header {
+  background: #121430 !important;
+}
+
+.anticon-left {
+  color: #ffffff5e !important;
+  &:hover {
+    color: #0091ff !important;
+  }
+}
+
+.anticon-right {
+  color: #ffffff5e !important;
+  &:hover {
+    color: #0091ff !important;
+  }
+}
+
+.ant-layout {
+  background: #1e2142 !important;
+}
+
+.ant-breadcrumb {
+  color: #ffffff5e !important;
+}
+
+.ant-breadcrumb-separator {
+  color: #ffffff5e !important;
+}
+
+.ant-breadcrumb li:last-child {
+  color: #0091ff !important;
+}
+
+.ant-layout-footer {
+  color: var(--color-white) !important;
+  background: var(--color-dark_blue) !important;
+}
+
+/* Section Header */
+.header-wrapper-search .ant-btn {
+  color: #ffffff;
+  background-color: #049170;
+  border: 1px solid #ffffff;
+  font-size: 15px;
+  border-radius: 0;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+
+  &:hover {
+    color: #ffffff !important;
+    background-color: #049170 !important;
+  }
+}
+/* Antd Pro */
+
+/* Login Section */
+.login-container {
+  background: #049170 !important;
+}
+
+.login-page .ant-pro-form-login-header {
+  flex-direction: column;
+}
+
+.login-page .ant-pro-form-login-logo {
+  width: 80px !important;
+  margin-top: 15px;
+  margin-bottom: 27px;
+}
+
+.login-page .ant-pro-form-login-title,
+.login-page .ant-pro-form-login-desc,
+.login-page .ant-checkbox-wrapper {
+  color: var(--color-primary) !important;
+  margin: 0;
+}
+
+.login-page .ant-pro-form-login-desc {
+  margin-block-start: 50px !important;
+  margin-bottom: 50px;
+  opacity: 0.8;
+}
+
+.login-page .ant-pro-form-login-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background: var(--color-white) !important;
+  min-height: 587px;
+  max-width: 470px;
+  border-radius: 10px;
+  border: 1px solid #cdcdcd;
+  box-shadow: 0px 0px 10px #000000;
+}
+
+.login-page .ant-btn-variant-solid {
+  background: var(--color-primary) !important ;
+}
+
+.login-page .ant-btn-variant-solid:hover {
+  background: #03634d !important ;
+}
+
+.login-page .ant-input-outlined:hover,
+.login-page .ant-input-outlined:focus,
+.login-page .ant-input-outlined:focus-within {
+  border-color: var(--color-primary) !important;
+}
+
+.login-page .ant-checkbox-wrapper:hover .ant-checkbox-inner,
+.login-page .ant-checkbox-checked .ant-checkbox-inner {
+  border-color: var(--color-primary) !important;
+}
+
+/* .login-page .ant-checkbox-wrapper:hover .ant-checkbox-inner {
+  box-shadow: 0 0 0 2px rgba(247, 0, 255, 0.2);
+} */
+
+.login-page .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--color-primary) !important;
+}
+
+.login-page .ant-space-item {
+  color: var(--color-primary);
+}
+
+.login-page .ant-typography a {
+  color: #5e5e5f8f !important;
+}
+
+.login-page .ant-typography a:hover {
+  color: var(--color-primary) !important;
+}
+
+.login-page
+  .ant-space.ant-space-horizontal.ant-space-align-center.ant-space-gap-row-small.ant-space-gap-col-small {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Register Section */
+.register-container {
+  background: #049170 !important;
+  overflow: auto;
+}
+
+.register-page .ant-pro-form-login-header {
+  flex-direction: column;
+}
+
+.register-page .ant-pro-form-login-logo {
+  width: 80px !important;
+  margin-top: 15px;
+  margin-bottom: 27px;
+}
+
+.register-page .ant-pro-form-login-title,
+.register-page .ant-pro-form-login-desc,
+.register-page .ant-checkbox-wrapper {
+  color: var(--color-primary) !important;
+  margin: 0;
+}
+
+.register-page .ant-pro-form-login-desc {
+  margin-block-start: 50px !important;
+  margin-bottom: 50px;
+  opacity: 0.8;
+}
+
+.register-page .ant-pro-form-login-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background: var(--color-white) !important;
+  min-height: 672px;
+  max-width: 587px;
+  border-radius: 10px;
+  border: 1px solid #cdcdcd;
+  box-shadow: 0px 0px 10px #000000;
+}
+
+.register-page .ant-pro-form-login-main {
+  min-width: 460px !important;
+}
+
+.register-page .ant-btn-variant-solid {
+  background: var(--color-primary) !important ;
+}
+
+.register-page .ant-btn-variant-solid:hover {
+  background: #03634d !important ;
+}
+
+.register-page .ant-input-outlined:hover,
+.register-page .ant-input-outlined:focus,
+.register-page .ant-input-outlined:focus-within {
+  border-color: var(--color-primary) !important;
+}
+
+.register-page .ant-checkbox-wrapper:hover .ant-checkbox-inner,
+.register-page .ant-checkbox-checked .ant-checkbox-inner {
+  border-color: var(--color-primary) !important;
+}
+
+/* .register-page .ant-checkbox-wrapper:hover .ant-checkbox-inner {
+  box-shadow: 0 0 0 2px rgba(247, 0, 255, 0.2);
+} */
+
+.register-page .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--color-primary) !important;
+}
+
+.register-page .ant-space-item {
+  color: var(--color-primary);
+}
+
+.register-page .ant-typography a {
+  color: #5e5e5f8f !important;
+}
+
+.register-page .ant-typography a:hover {
+  color: var(--color-primary) !important;
+}
+
+.register-page
+  .ant-space.ant-space-horizontal.ant-space-align-center.ant-space-gap-row-small.ant-space-gap-col-small {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Back Top Section */
+/* .home-container .anticon {
+  color:var(--color-white) !important
+} */
+
+.ant-float-btn-body {
+  background-color: #049170 !important;
+
+  box-shadow: 0 0 6px #000000;
+}
+
+.ant-float-btn-default {
+  translate: 15px 10px;
+}
+
+.ant-float-btn-icon {
+  color: var(--color-white) !important;
+}
+
+
+.ant-divider-horizontal {
+width: 97% !important;
+min-width: 97% !important;
+margin: 0 auto !important;
+}
