@@ -1,11 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:500");
 
-body {
-  background: #049170;
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
   color: #fff;
   font-family: cursive;
-  max-height: 700px;
-  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
 }
 
 .c {
