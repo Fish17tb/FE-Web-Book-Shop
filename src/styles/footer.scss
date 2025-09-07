@@ -1,0 +1,144 @@
+:root {
+    --color-primary: #049170;
+    --color-turquoise: #01af86;
+    --color-turquoise-light: #00ffc3;
+
+    --color-white: #ffffff;
+    --color-light: #f1f5f9;
+    --color-black: #121212;
+    --color-night: #001632;
+
+    --color-red: #dd2f2c;
+    --color-blue: #1a73e8;
+    --color-gray: #80868b;
+    --color-grayish: #dadce0;
+    --color-dark_blue: #1e2142;
+
+
+    --color-facebok: #0062ff;
+    --color-telegram: #00aaff;
+    --color-google: #ff3c00;
+    --color-youtube: #ff0808;
+    --color-twitter: #0099ff;
+
+}
+
+
+.footer-container {
+    padding: 60px;
+
+    .footer-content-wraper {
+        display: flex;
+
+        .footer-content-include {
+            .footer-title {
+                color: var(--color-white);
+                font-size: 15px;
+                font-weight: 700;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+
+            }
+
+            .footer-text {
+                color: var(--color-white);
+                font-size: 15px;
+                cursor: pointer;
+                transition: 0.3s ease-in;
+
+                &:hover {
+                    color: #ffe200;
+                }
+            }
+
+            .footer-text-content {
+                color: var(--color-white);
+                font-size: 15px;
+            }
+
+            .footer-social-wrapper {
+                display: flex;
+                justify-content: space-between;
+                gap: 15px;
+
+                .footer-social-item {
+                    transition: 0.2s ease-in;
+                    cursor: pointer;
+
+                    .footer-social-item-iamge {
+                        height: 35px;
+                        width: 35px;
+                        transition: 0.2s ease-in;
+
+                        &:hover {
+                            background: var(--color-turquoise-light);
+                            border-radius: 50%;
+                            box-shadow: 0px 0px 8px #000000;
+
+                        }
+
+
+                    }
+
+
+                }
+            }
+
+            .footer-adderss,
+            .footer-phone,
+            .footer-email {
+                color: var(--color-white);
+                font-size: 15px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .footer-input-containnner {
+        background-color: var(--color-white);
+        padding: 8px;
+        border-radius: 5px;
+        margin-top: 15px;
+
+        .footer-input-wrapper {
+            display: flex;
+
+            .footer-input-include {
+                border: 1px solid var(--color-gray);
+                display: flex;
+                align-items: center;
+                width: 100%;
+                padding: 0 15px;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+
+                .footer-input-item {
+                    width: 100%;
+                    border: none;
+                    // border: 1px solid red;
+                    outline: none;
+                }
+            }
+
+            .footer-input-btn {
+                border: none;
+                outline: none;
+                background: var(--color-primary);
+                color: var(--color-white);
+                width: 105px;
+                font-weight: 600;
+                padding: 10px;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                cursor: pointer;
+                transition: 0.2s ease-in;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+
+        }
+    }
+
+}
